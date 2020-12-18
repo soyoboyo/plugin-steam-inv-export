@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f5ae4f8b-2707-41c1-bdde-42925e58261c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1lgW6KFvIp1LKXyVWpbKv6GXnds" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/icons" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Programy\plugin-steam-inv-export" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\Programy\plugin-steam-inv-export\icons" />
+      <recent name="A:\Programy\plugin-steam-inv-export" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5ae4f8b-2707-41c1-bdde-42925e58261c" name="Default Changelist" comment="" />
+      <created>1608019037838</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608019037838</updated>
+      <workItem from="1608019038962" duration="6974000" />
+      <workItem from="1608288365109" duration="2211000" />
+      <workItem from="1608290996749" duration="124000" />
+      <workItem from="1608291347562" duration="12664000" />
+      <workItem from="1608317507438" duration="1534000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2997" y="90" key="editAsTableFormatDialogDimension" timestamp="1608310434648">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2997" y="90" key="editAsTableFormatDialogDimension/0.0.2560.1400/2560.0.1920.1040/-1080.0.1080.1880@2560.0.1920.1040" timestamp="1608310434648" />
+    <state x="1476" y="631" width="716" height="740" key="find.popup" timestamp="1608306157445">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1476" y="631" width="716" height="740" key="find.popup/0.0.2560.1400/2560.0.1920.1040/-1080.0.1080.1880@0.0.2560.1400" timestamp="1608306157445" />
+  </component>
+</project>

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "SteamInvExport",
+  "version": "1.0",
+  "description": "Export steam invoentory into csv",
+  "icons": {
+    "48": "icons/steam-inv.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://steamcommunity.com/id/*"
+      ],
+      "js": [
+        "export-inv.js"
+      ]
+    }
+  ]
+}
