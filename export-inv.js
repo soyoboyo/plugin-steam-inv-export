@@ -1,6 +1,10 @@
-document.body.style.border = "10px solid red";
+// 'use strict';
+// const fs = require('fs');
 
 console.log("hello")
+document.body.style.border = "5px solid red";
+
+/////////////////////////// DOM manipulation
 const button = document.createElement("button");
 const controlsContainer = document.createElement("div");
 controlsContainer.style.padding = "10px";
@@ -14,25 +18,22 @@ button.addEventListener("click", function () {
     let itemsMap = new Map();
 
     putDescriptionsInMap(descriptions, itemsMap);
-    // assets.reverse();
+    assets.reverse();
     processItems(assets, itemsMap);
 });
 
 let buttonPlacement = document.getElementById("active_inventory_page");
 let parent = buttonPlacement.parentElement;
 parent.insertBefore(button, buttonPlacement);
-// setTimeout(function () {
-//
-// }, 2000);
 
-
-/////////////////////////////////////////////////////////
-
-
+/////////////////////////// JSON manipulation
 function getItems() {
     console.log("get items");
     let xmlHttp = new XMLHttpRequest();
-    let inventoryURL = "https://steamcommunity.com/inventory/76561198017460423/730/2?l=english&count=500";
+    let steamID64 = "76561198017460423";
+    let inventoryIdCSGO = 730
+    let itemsCount = 500;
+    let inventoryURL = "https://steamcommunity.com/inventory/" + steamID64 + "/" + inventoryIdCSGO + "/2?l=english&count=" + itemsCount;
     xmlHttp.open("GET", inventoryURL, false); // false for synchronous request
     xmlHttp.send(null);
     return JSON.parse(xmlHttp.responseText);
@@ -58,7 +59,6 @@ function processItems(assets, itemsMap) {
 }
 
 function createLine(tags, name) {
-    // console.log("create line " + name);
     let type = tags.find(tag => tag.category === 'Type').localized_tag_name;
     if (type === 'Container') {
         return "--------------- container\n";
@@ -76,7 +76,7 @@ function createLine(tags, name) {
         return "--------------- music kit\n";
     } else if (type === 'Patch') {
         return "--------------- patch\n";
-    }else if (type === 'Pass') {
+    } else if (type === 'Pass') {
         return "--------------- pass\n";
     }
 
@@ -88,7 +88,7 @@ function createLine(tags, name) {
         let condition = tags.find(tag => tag.category === 'Exterior').localized_tag_name;
         let stattrak = tags.find(tag => tag.category === 'Quality').localized_tag_name === "Normal" ? 0 : 1;
         let rarity = tags.find(tag => tag.category === 'Rarity').localized_tag_name;
-        return itemName + "," + condition + "," + stattrak + "," + weapon + "," + rarity + "," + origin + "\n";
+        return itemName + "," + condition + "," + stattrak + "," + weapon + "," + rarity + "," + origin + " \n";
     } else {
         return "item not managed ----------------------------" + name + "\n";
     }
