@@ -5,14 +5,25 @@ console.log("hello")
 document.body.style.border = "5px solid red";
 
 /////////////////////////// DOM manipulation
-const button = document.createElement("button");
+// container
 const controlsContainer = document.createElement("div");
 controlsContainer.style.padding = "10px";
+
+// items count
+const itemsLimitInput = document.createElement("input");
+itemsLimitInput.style.width = "100px";
+itemsLimitInput.type = "text";
+itemsLimitInput.value = "50";
+
+
+
+
+// button
+const button = document.createElement("button");
 button.innerHTML = "DOWNLOAD ITEMS";
-controlsContainer.appendChild(button);
 button.addEventListener("click", function () {
     console.log("button click");
-    let response = getItems();
+    let response = getItems(itemsLimitInput.value);
     let assets = response.assets;
     let descriptions = response.descriptions;
     let itemsMap = new Map();
@@ -22,17 +33,18 @@ button.addEventListener("click", function () {
     processItems(assets, itemsMap);
 });
 
+
 let buttonPlacement = document.getElementById("active_inventory_page");
 let parent = buttonPlacement.parentElement;
+parent.insertBefore(itemsLimitInput, buttonPlacement);
 parent.insertBefore(button, buttonPlacement);
 
 /////////////////////////// JSON manipulation
-function getItems() {
+function getItems(itemsCount) {
     console.log("get items");
     let xmlHttp = new XMLHttpRequest();
     let steamID64 = "76561198017460423";
-    let inventoryIdCSGO = 730
-    let itemsCount = 500;
+    let inventoryIdCSGO = 730;
     let inventoryURL = "https://steamcommunity.com/inventory/" + steamID64 + "/" + inventoryIdCSGO + "/2?l=english&count=" + itemsCount;
     xmlHttp.open("GET", inventoryURL, false); // false for synchronous request
     xmlHttp.send(null);
@@ -60,18 +72,29 @@ function processItems(assets, itemsMap) {
 
 function createLine(tags, name) {
     let type = tags.find(tag => tag.category === 'Type').localized_tag_name;
+
     if (type === 'Container') {
         return "--------------- container\n";
     } else if (type === 'Knife') {
         return "--------------- knife\n";
     } else if (type === 'Agent') {
-        return "--------------- knife\n";
+        return "--------------- agent\n";
     } else if (type === 'Tool') {
         return "--------------- tool\n";
     } else if (type === 'Collectible') {
-        return "--------------- tool\n";
+        return "--------------- collectible\n";
     } else if (type === 'Gloves') {
-        return "--------------- tool\n";
+        console.log(tags);
+        let condition = tags.find(tag => tag.category === 'Exterior').localized_tag_name;
+        let glovesType = name.split("| ")[1];
+        let glovesFamily = name.split("| ")[0];
+        glovesFamily = glovesFamily.substring(2, glovesFamily.length);
+        return glovesType + "," +
+            condition + "," +
+            "-" + "," +
+            glovesFamily + "," +
+            "Gloves" + "," +
+            "unknown origin" + " \n";
     } else if (type === 'Music Kit') {
         return "--------------- music kit\n";
     } else if (type === 'Patch') {
